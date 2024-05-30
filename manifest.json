@@ -1,0 +1,12 @@
+{
+   "name": "HideChatButtons",
+   "version": "1.0.0",
+   "description": "Hide the unnecessary icons from the chat bar",
+   "authors": [
+      {
+         "name": "SerStars",
+         "id": "861631850681729045"
+      }
+   ],
+   "color": "#000001"
+}
