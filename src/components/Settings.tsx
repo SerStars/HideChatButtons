@@ -114,7 +114,7 @@ export default ({settings}) => {
          onPress={() => {
             Dialog.show({
             title: `Hidden Buttons`,
-            body: `- Gift Button\n- App Launcher Button\n- Record Voice Message Button\nYou can allow showing Record Voice Message Button by toggling the switch in the settings`,
+            body: `- Gift Button\n- App Launcher Button\n- Record Voice Message Button\nYou can unhide Buttons by toggling their switches in the settings`,
             confirmText: "OK",
             onConfirm: () => Dialog.close
          })
