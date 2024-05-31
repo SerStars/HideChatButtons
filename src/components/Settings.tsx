@@ -10,6 +10,8 @@ const GitHubIcon = getIDByName('img_account_sync_github_white')
 const ShopIcon = getIDByName('img_collectibles_shop')
 const HelpIcon = getIDByName('ic_help_24px')
 const MuteIcon = getIDByName('ic_mic_muted_dark_24px')
+const AppIcon = getIDByName('ic_application_command_24px')
+const GiftIcon = getIDByName('ic_gift_24px')
 
 export default ({settings}) => {
    const styles = StyleSheet.createThemedStyleSheet({
@@ -64,17 +66,47 @@ export default ({settings}) => {
    </View>
       <FormSection title="PLUGIN SETTINGS">
          <FormRow
-         label="Allow Voice Message"
-         subLabel="Show Voice Message button"
+         label="Disable Voice Message"
+         subLabel="Hide Voice Message button"
          leading={<FormRow.Icon source={MuteIcon}/>}
          trailing={
       <FormSwitch
-         value={settings.getBoolean("allowVoice", false)}
-         onValueChange={() => settings.toggle("allowVoice", true)}
+         value={settings.getBoolean("hideVoice", true)}
+         onValueChange={(value) => {
+            settings.set("hideVoice", value)
+         }}
             />
          }
       />
       <FormRow
+         label="Disable App Launcher"
+         subLabel="Hide App Launcher button"
+         leading={<FormRow.Icon source={AppIcon}/>}
+         trailing={
+      <FormSwitch
+         value={settings.getBoolean("hideLauncher", false)}
+         onValueChange={(value) => {
+            settings.set("hideLauncher", value)
+         }}
+            />
+         }
+      />
+      <FormRow
+         label="Disable Gift"
+         subLabel="Hide Gift button"
+         leading={<FormRow.Icon source={GiftIcon}/>}
+         trailing={
+      <FormSwitch
+         value={settings.getBoolean("hideGift", false)}
+         onValueChange={(value) => {
+            settings.set("hideGift", value)
+         }}
+            />
+         }
+      />
+      </FormSection>
+      <FormSection title="INFORMATION">
+         <FormRow
          label="Which buttons are hidden?"
          style={styles.info}
          trailing={FormRow.Arrow}
@@ -87,8 +119,6 @@ export default ({settings}) => {
             onConfirm: () => Dialog.close
          })
          }}/>
-      </FormSection>
-      <FormSection title="INFORMATION">
          <FormRow
          label="Check Source Code on GitHub"
          style={styles.info}
