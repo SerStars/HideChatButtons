@@ -5,7 +5,7 @@ import { getByProps } from 'enmity/metro';
 import { findInReactTree } from 'enmity/utilities';
 import { get } from "enmity/api/settings";
 
-import manifest from '../manifest.json';
+import manifest, { name as plugin_name } from '../manifest.json'
 import Settings from "./components/Settings"
 
 const ChatInput = getByProps('ChatInput');
@@ -24,12 +24,26 @@ const HideChatButtons: Plugin = {
          );
 
          if (!chatInput) return;
-         chatInput.props.isAppLauncherEnabled = false;
-         chatInput.props.hideGiftButton = true;
-         chatInput.props.canSendVoiceMessage = false
+         if (get(plugin_name, "hideVoice", true)) {
+            chatInput.props.canSendVoiceMessage = false
+         }
+         else {
+            chatInput.props.canSendVoiceMessage = true
+         }
 
-         if (!get(manifest.name, "allowVoice", true)) return;
-         chatInput.props.canSendVoiceMessage = true
+         if (get(plugin_name, "hideLauncher", true)) {
+            chatInput.props.isAppLauncherEnabled = false;
+         }
+         else {
+            chatInput.props.isAppLauncherEnabled = true;
+         }
+
+         if (get(plugin_name, "hideGift", true)) {
+            chatInput.props.hideGiftButton = true;
+         }
+         else {
+            chatInput.props.hideGiftButton = false;
+         }
       });
    },
 
