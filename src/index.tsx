@@ -20,7 +20,8 @@ const HideChatButtons: Plugin = {
             res, r => 
             typeof r.props?.isAppLauncherEnabled === 'boolean' || 
             typeof r.props?.hideGiftButton === 'boolean' ||
-            typeof r.props?.canSendVoiceMessage === 'boolean'
+            typeof r.props?.canSendVoiceMessage === 'boolean' ||
+            typeof r.props?.canStartThreads === 'boolean'
          );
 
          if (!chatInput) return;
@@ -43,6 +44,13 @@ const HideChatButtons: Plugin = {
          }
          else {
             chatInput.props.hideGiftButton = false;
+         }
+
+         if (get(plugin_name, "hideThread", true)) {
+            chatInput.props.canStartThreads = false;
+         }
+         else {
+            chatInput.props.canStartThreads = true;
          }
       });
    },

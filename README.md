@@ -3,4 +3,4 @@ Hide the unnecessary icons from the chat bar
 
 [Install Plugin][pluginlink]
 
-[pluginlink]: https://raw.githubusercontent.com/SerStars/HideChatButtons/README/dist/HideChatButtons.js
+[pluginlink]: discord://enmity?id=-1&command=install-plugin&params=https://serstars.is-a.dev/plugins/p/HideChatButtons.js
