@@ -7,9 +7,9 @@ import {version} from '../../manifest.json'
 import {getIDByName} from "enmity/api/assets"
 
 const GitHubIcon = getIDByName('img_account_sync_github_white')
-const MuteIcon = getIDByName('ic_mic_muted_dark_24px')
-const AppIcon = getIDByName('ic_application_command_24px')
-const GiftIcon = getIDByName('ic_gift_24px')
+const MuteIcon = getIDByName('MicrophoneSlashIcon')
+const AppIcon = getIDByName('AppsIcon')
+const GiftIcon = getIDByName('GiftIcon')
 const ThreadIcon = getIDByName('ThreadPlusIcon')
 
 export default ({settings}) => {
